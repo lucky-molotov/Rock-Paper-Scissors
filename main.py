@@ -1,4 +1,4 @@
-import random
+import random, time
 
 choices = ('Rock', 'Paper', "Scissor")
 
@@ -8,7 +8,49 @@ player_draws = 0
 pc_wins = 0
 pc_losses = 0
 pc_draws = 0
+def show_scores():
+    print(f"""
+SCOREBOARD  SCOREBOARD  SCOREBOARD  SCOREBOARD  SCOREBOARD  SCOREBOARD  SCOREBOARD 
+____________________________________________________________________________________
 
+Player = |||Wins({player_wins})|||Losses({player_losses})|||Draws({player_draws})|||          
+NPC    = |||Wins({pc_wins})|||Losses({pc_losses})|||Draws({pc_draws})|||          
+____________________________________________________________________________________      
+          """)
+    print("""
+        Menu
+--------------------        
+1. Return to Menu
+2. Start a new Game
+3. Quit
+""")
+    userInput = int(input())
+    if userInput == 1:
+        menu() 
+    if userInput == 2:
+        start()
+    if userInput == 3:
+        exit()
+
+def menu():
+    print("""
+Welcome to Rock Paper Scissors.          
+        Main Menu
+-------------------------------       
+1. Start Game
+2. Check Scores
+3. Quit           
+-------------------------------          
+          """)
+    userChoice = int(input())    
+    if userChoice == 1:
+        print("Starting Game...")
+        time.sleep(1)
+        start()
+    if userChoice == 2:
+        show_scores()
+    if userChoice == 3:
+        exit()
 def start():
     global   player_wins, player_losses, player_draws, pc_wins, pc_losses, pc_draws
     player = ""
@@ -69,12 +111,9 @@ def start():
             print("you win")
             player_wins += 1 
             pc_losses += 1
+    print("Returning to the Main Menu")
+    time.sleep(1)    
+    menu()
     
         
-start()
-print("Scores    W|D|L")
-print("----------------")
-print(f"Player   {player_wins}|{player_draws}|{player_losses}")
-print("----------------")
-print(f"Computer {pc_wins}|{pc_draws}|{pc_losses}|")
-print("----------------")
+menu()
