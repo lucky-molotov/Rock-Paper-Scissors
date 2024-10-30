@@ -75,45 +75,18 @@ def start():
 
 
         print(f"amount of rounds left {games} ")
-        if player in 'rock' and pc_choice in 'rock':
+        if player == pc_choice:
             print('draw')
             player_draws += 1
             pc_draws += 1
-        elif player in "rock" and pc_choice in "scissor":
+        elif (player == 'rock' and pc_choice == 'scissor') or (player == 'scissor' and pc_choice == 'paper') or (player == 'paper' and pc_choice == 'rock'):
             print("you win")
             player_wins += 1 
             pc_losses += 1
-        elif player in "rock" and pc_choice in "paper":
+        else:
             print("you lose")
             player_losses += 1
             pc_wins += 1
-        elif player in 'paper' and pc_choice in 'rock':
-            print('win')
-            player_wins += 1 
-            pc_losses += 1
-        elif player in "paper" and pc_choice in "scissor":
-            print("you lose")
-            player_losses += 1
-            pc_wins += 1
-        elif player in "paper" and pc_choice in "paper":
-            print("you draw")
-            player_draws+= 1
-            pc_draws += 1
-        elif player in 'scissor' and pc_choice in 'rock':
-            print('lose')
-            player_losses += 1
-            pc_wins += 1
-        elif player in "scissor" and pc_choice in "scissor":
-            print("you draw")
-            player_draws+= 1
-            pc_draws += 1
-        elif player in "scissor" and pc_choice in "paper":
-            print("you win")
-            player_wins += 1 
-            pc_losses += 1
-    print("Returning to the Main Menu")
-    time.sleep(1)    
-    menu()
     
         
 menu()
